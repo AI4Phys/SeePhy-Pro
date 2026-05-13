@@ -1,0 +1,10 @@
+group: seephys_pro_testmini
+task:
+  - seephys_pro_level1_testmini
+  - seephys_pro_level2_testmini
+  - seephys_pro_level3_testmini
+  - seephys_pro_level4_testmini
+metadata:
+  version: 0.0
+  eval_model_name: "gpt-5-mini"
+  quick_extract: false

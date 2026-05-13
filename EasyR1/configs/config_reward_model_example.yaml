@@ -1,0 +1,96 @@
+# Example configuration for using a neural network-based Reward Model
+# This is an example - adjust paths and parameters according to your setup
+
+data:
+  train_files: hiyouga/math12k@train
+  val_files: hiyouga/math12k@test
+  prompt_key: problem
+  answer_key: answer
+  max_prompt_length: 2048
+  max_response_length: 4096
+  rollout_batch_size: 512
+  format_prompt: ./examples/format_prompt/math.jinja
+
+algorithm:
+  adv_estimator: grpo
+  disable_kl: false
+  use_kl_loss: true
+  kl_penalty: low_var_kl
+  kl_coef: 1.0e-2
+
+worker:
+  actor:
+    global_batch_size: 128
+    micro_batch_size_per_device_for_update: 4
+    micro_batch_size_per_device_for_experience: 16
+    max_grad_norm: 1.0
+    padding_free: true
+    dynamic_batching: true
+    ulysses_size: 1
+    model:
+      model_path: Qwen/Qwen2.5-7B-Instruct
+      enable_gradient_checkpointing: true
+      trust_remote_code: true
+    optim:
+      lr: 1.0e-6
+      weight_decay: 1.0e-2
+      strategy: adamw_bf16
+      lr_warmup_ratio: 0.0
+    fsdp:
+      enable_full_shard: true
+      enable_cpu_offload: false
+      enable_rank0_init: true
+    offload:
+      offload_params: true
+      offload_optimizer: true
+
+  rollout:
+    n: 5
+    temperature: 1.0
+    top_p: 1.0
+    tensor_parallel_size: 2
+    gpu_memory_utilization: 0.8
+
+  ref:
+    fsdp:
+      enable_full_shard: true
+      enable_cpu_offload: true
+      enable_rank0_init: true
+    offload:
+      offload_params: false
+
+  # Reward Model (neural network-based)
+  # Set this to use a neural network reward model instead of a Python function
+  reward_model:
+    model:
+      model_path: path/to/your/reward/model  # Path to your reward model
+      enable_gradient_checkpointing: false  # Usually not needed for inference
+      trust_remote_code: true
+    fsdp:
+      enable_full_shard: true
+      enable_cpu_offload: false
+      enable_rank0_init: true
+      fsdp_size: 4  # FSDP parallel size for reward model
+    padding_free: true
+    dynamic_batching: true
+    ulysses_size: 1
+    offload:
+      offload_params: false  # Set to true if GPU memory is limited
+      offload_optimizer: false  # Not needed for inference
+
+  # Reward function (Python-based) - ignored if reward_model is set
+  reward:
+    reward_function: null  # Set to null when using reward_model
+
+trainer:
+  total_epochs: 15
+  project_name: easy_r1
+  experiment_name: qwen2_5_7b_math_grpo_with_reward_model
+  logger: ["console", "wandb"]
+  nnodes: 1
+  n_gpus_per_node: 8
+  val_freq: 5
+  val_before_train: true
+  save_freq: 5
+  save_limit: 3
+

@@ -1,0 +1,6 @@
+task: "seephys_pro_level3"
+dataset_kwargs:
+  token: True
+  data_files: "data/seephys_pro/level3-00000-of-00001.parquet"
+test_split: train
+include: _default_template_seephys_pro.yaml

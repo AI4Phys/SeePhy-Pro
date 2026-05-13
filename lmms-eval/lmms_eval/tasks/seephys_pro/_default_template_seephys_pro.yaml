@@ -1,0 +1,51 @@
+dataset_path: parquet
+dataset_kwargs:
+  token: True
+
+output_type: generate_until
+
+filter_list:
+  - name: answer_box
+    filter:
+      - function: last_answer_tag
+        regex_pattern: "<answer>\\s*(.*?)\\s*</answer>"
+        fallback: ""
+
+generation_kwargs:
+  # 给足生成长度，避免空回复
+  max_tokens: 32768
+  max_new_tokens: 32768
+  temperature: 0.0
+  # 清空 stop，避免提示中的换行触发提前终止
+  until: []
+  do_sample: false
+  top_p: 1.0
+
+doc_to_visual: !function seephys_pro_utils.seephys_pro_doc_to_visual
+doc_to_text: !function seephys_pro_utils.seephys_pro_doc_to_text
+doc_to_messages: !function seephys_pro_utils.seephys_pro_doc_to_messages
+doc_to_target: "answer"
+
+process_results: !function seephys_pro_utils.seephys_pro_process_results
+
+metric_list:
+  - metric: eval_results
+    aggregation: !function seephys_pro_utils.seephys_pro_aggregate_results
+    higher_is_better: true
+  - metric: eval_results_by_discipline
+    aggregation: !function seephys_pro_utils.seephys_pro_aggregate_results_by_discipline
+    higher_is_better: true
+  - metric: key_info_hit_rate
+    aggregation: !function seephys_pro_utils.seephys_pro_aggregate_key_info_hit_rate
+    higher_is_better: true
+
+metadata:
+  version: 0.0
+  eval_model_name: "gpt-5-mini"
+  quick_extract: false
+  max_new_tokens: 4096
+  process_results_workers: 8
+  process_results_max_in_flight: 128
+  metric_output_mode: both
+  key_info_max_retries: 3
+  key_info_temperature: 0.0

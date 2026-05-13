@@ -1,0 +1,41 @@
+# OS and editor metadata
+.DS_Store
+.idea/
+.vscode/
+.ipynb_checkpoints/
+
+# Python caches and build artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments and secrets
+.env
+.env.*
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+
+# Logs and local outputs
+*.log
+logs/
+outputs/
+output/
+wandb/
+swanlab/
+
+# Local data, models, and checkpoints
+data/
+**/data/
+checkpoints/
+**/checkpoints/
+pretrained/
+**/pretrained/
+ckpt/
+**/ckpt/

@@ -1,0 +1,7 @@
+{{ content | trim }}
+
+{% if has_chinese | default(false) %}
+首先，将你的思考过程以内心独白的形式表达出来，并用 <thinking> </thinking> 标签包裹起来。然后，将你的最终答案用 \boxed{} 标签括起来。
+{% else %}
+You first think through the reasoning process as an internal monologue, enclosed within <thinking> </thinking> tags. Then, provide your final answer enclosed within \boxed{}.
+{% endif %}

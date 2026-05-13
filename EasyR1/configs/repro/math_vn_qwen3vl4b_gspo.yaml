@@ -1,0 +1,120 @@
+data:
+  train_files: your-org/visual-math-rl@train
+  val_files: mathverse=your-org/MathVerse-vision-dependent@validation,mmk12=your-org/MMK12-Test@validation
+  prompt_key: problem
+  answer_key: answer
+  image_key: images
+  video_key: videos
+  image_dir: null
+  video_fps: 2.0
+  max_prompt_length: 4096
+  max_response_length: 4096
+  rollout_batch_size: 256
+  mini_rollout_batch_size: null
+  val_batch_size: 1024
+  format_prompt: ./configs/format_prompt/math_adapt.jinja
+  override_chat_template: null
+  shuffle: true
+  seed: 1
+  min_pixels: 262144
+  max_pixels: 4194304
+  filter_overlong_prompts: true
+  filter_overlong_prompts_workers: 32
+  num_workers: 16
+  train_image_mask_mode: none
+  train_image_mask_ratio: 0.0
+  train_image_mask_patch_size: 32
+  train_image_mask_seed: 1
+  train_add_blank_image_for_text: false
+  train_blank_image_size: 512
+
+algorithm:
+  adv_estimator: grpo
+  disable_kl: true
+  use_kl_loss: false
+  kl_penalty: low_var_kl
+  kl_coef: 1.0e-2
+  online_filtering: false
+  filter_key: overall
+  filter_low: 0.01
+  filter_high: 0.99
+
+worker:
+  actor:
+    global_batch_size: 128
+    micro_batch_size_per_device_for_update: 4
+    micro_batch_size_per_device_for_experience: 16
+    max_grad_norm: 1.0
+    clip_ratio_low: 3.0e-4
+    clip_ratio_high: 4.0e-4
+    loss_avg_mode: seq
+    loss_type: gspo_token
+    ppo_epochs: 1
+    padding_free: true
+    dynamic_batching: true
+    ulysses_size: 1
+    model:
+      model_path: Qwen/Qwen3-VL-4B-Instruct
+      enable_gradient_checkpointing: true
+      trust_remote_code: true
+      freeze_vision_tower: false
+    optim:
+      lr: 1.0e-6
+      weight_decay: 1.0e-2
+      strategy: adamw_bf16
+      lr_warmup_ratio: 0.0
+    fsdp:
+      enable_full_shard: true
+      enable_cpu_offload: false
+      enable_rank0_init: true
+    offload:
+      offload_params: true
+      offload_optimizer: true
+
+  rollout:
+    n: 4
+    temperature: 1.0
+    top_p: 1.0
+    limit_images: 0
+    gpu_memory_utilization: 0.8
+    enforce_eager: false
+    enable_chunked_prefill: false
+    tensor_parallel_size: 2
+    max_model_len: 8192
+    max_num_batched_tokens: 8192
+    disable_tqdm: false
+    val_override_config:
+      temperature: 0.0
+      top_p: 1.0
+      n: 1
+
+  ref:
+    fsdp:
+      enable_full_shard: true
+      enable_cpu_offload: true
+      enable_rank0_init: true
+    offload:
+      offload_params: false
+
+  reward:
+    reward_function: ./configs/reward_function/math_adapt.py:compute_score
+
+trainer:
+  total_epochs: 15
+  max_steps: 600
+  project_name: seephyspro_repro
+  experiment_name: math_vn_qwen3vl4b_gspo
+  logger: ["file"]
+  nnodes: 1
+  n_gpus_per_node: 4
+  max_try_make_batch: 20
+  val_freq: 5
+  val_before_train: true
+  val_only: false
+  val_generations_to_log: 3
+  save_freq: 5
+  save_limit: 3
+  save_model_only: false
+  save_checkpoint_path: null
+  load_checkpoint_path: null
+  find_last_checkpoint: true

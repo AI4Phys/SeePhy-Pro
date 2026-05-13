@@ -1,0 +1,9 @@
+group: seephys_pro
+task:
+  - seephys_pro_all
+  - seephys_pro_testmini
+
+metadata:
+  version: 0.0
+  eval_model_name: "gpt-5-mini"
+  quick_extract: false

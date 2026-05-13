@@ -1,0 +1,14 @@
+# SeePhys Pro closed-model / API run
+
+env:
+  OPENAI_API_KEY: "${OPENAI_API_KEY}"
+  HF_HOME: "${HF_HOME:-~/.cache/huggingface}"
+
+model: openai
+model_args: "model=gpt-4o,max_retries=5"
+tasks: "seephys_pro_all"
+batch_size: 1
+num_fewshot: 0
+gen_kwargs: "temperature=0,max_new_tokens=32768"
+output_path: "./outputs/api/"
+log_samples: true
