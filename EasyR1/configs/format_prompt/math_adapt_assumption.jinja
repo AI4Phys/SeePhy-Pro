@@ -1,8 +1,0 @@
-{{ content | trim }}
-
-{% if has_chinese | default(false) %}
-首先，列出你在解题过程中所做的假设，并用 <assumption> </assumption> 标签包裹起来（例如：- friction: ignored\n- air resistance: ignored\n- constant velocity: 1 m/s）。然后，将你的思考过程以内心独白的形式表达出来，并用 <thinking> </thinking> 标签包裹起来。在思考过程中，请确保使用或参考你在假设中提到的内容。最后，将你的最终答案用 \boxed{} 标签括起来。
-{% else %}
-First, list the assumptions you make during problem-solving, enclosed within <assumption> </assumption> tags (e.g., - friction: ignored\n- air resistance: ignored\n- constant velocity: 1 m/s). Then, think through the reasoning process as an internal monologue, enclosed within <thinking> </thinking> tags. In your thinking, make sure to use or reference the assumptions you listed. Finally, provide your final answer enclosed within \boxed{}.
-{% endif %}
-
