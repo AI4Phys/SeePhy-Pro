@@ -21,6 +21,19 @@
   <a href="https://huggingface.co/datasets/Kun-Xiang/SeePhysPro">Benchmark</a>
 </p>
 
+## News
+
+- [2026.05.13] We release the official
+  [code](https://github.com/AI4Phys/SeePhy-Pro) for SeePhys Pro.
+- [2026.05.13] The [arXiv paper](https://arxiv.org/abs/2605.09266) and
+  [project page](https://seephyspro.github.io) are online.
+- [2026.05.13] We release the [PhysRL training set](https://huggingface.co/datasets/Kun-Xiang/PhysRL)
+  and [SeePhys Pro benchmark](https://huggingface.co/datasets/Kun-Xiang/SeePhysPro)
+  on Hugging Face.
+- [2026.05.13] SeePhys Pro is included as
+  [Challenge 3](https://www.codabench.org/competitions/16010/) at the
+  [3rd AI for Math Workshop at ICML 2026](https://ai4math2026.github.io/).
+
 ## Overview
 
 SeePhys Pro is a fine-grained modality-transfer benchmark for multimodal physics
