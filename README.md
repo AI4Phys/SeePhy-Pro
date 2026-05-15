@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/figures/seephyspro_logo.svg" width="580" alt="SeePhys Pro">
+  <img src="assets/figures/seephyspro_logo.png" width="580" alt="SeePhys Pro">
 </p>
 
 <p align="center">
