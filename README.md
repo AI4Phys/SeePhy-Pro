@@ -1,4 +1,6 @@
-<h1 align="center">SeePhys Pro</h1>
+<p align="center">
+  <img src="assets/figures/seephyspro_logo.svg" width="580" alt="SeePhys Pro">
+</p>
 
 <p align="center">
   <b>Diagnosing Modality Transfer and Blind-Training Effects in Multimodal RLVR for Physics Reasoning</b>
@@ -312,11 +314,18 @@ validation every 5 iterations.
 
 ```bibtex
 @article{xiang2026seephyspro,
-  title   = {SeePhys Pro: Diagnosing Modality Transfer and Blind-Training Effects in Multimodal RLVR for Physics Reasoning},
-  author  = {Xiang, Kun and Zhang, Terry Jingchen and Liu, Zirong and Zhou, Bokai and Tang, Yueling and Yu, Junjie and Lu, Jiacong and Huang, Shangrui and Li, Heng and Zhang, Likui and Liu, Kunkun and Zhang, Changzheng and Fang, Yangle and Guo, Boqiang and Zhen, Hui-Ling and Tu, Dandan and Huang, Yinya and Liang, Xiaodan},
-  journal = {arXiv preprint arXiv:2605.09266},
-  year    = {2026},
-  url     = {https://arxiv.org/abs/2605.09266}
+  title={SeePhys Pro: Diagnosing Modality Transfer and Blind-Training Effects in Multimodal RLVR for Physics Reasoning},
+  author={Xiang, Kun and Zhang, Terry Jingchen and Liu, Zirong and Zhou, Bokai and Tang, Yueling and Yu, Junjie and Lu, Jiacong and Huang, Shangrui and Li, Heng and Zhang, Likui and Liu, Kunkun and Zhang, Changzheng and Fang, Yangle and Guo, Boqiang and Zhen, Hui-Ling and Tu, Dandan and Huang, Yinya and Liang, Xiaodan},
+  journal={arXiv preprint arXiv:2605.09266},
+  year={2026}
+}
+
+@article{xiang2026seephys,
+  title={Seephys: Does seeing help thinking?--benchmarking vision-based physics reasoning},
+  author={Xiang, Kun and Li, Heng and Zhang, Terry Jingchen and Huang, Yinya and Liu, Zirong and Qu, Peixin and He, Jixi and Chen, Jiaqi and Yuan, Yu-Jie and Han, Jianhua and others},
+  journal={Advances in Neural Information Processing Systems},
+  volume={38},
+  year={2026}
 }
 ```
 

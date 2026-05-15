@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 260" role="img" aria-labelledby="title desc">
+  <title id="title">SeePhys Pro</title>
+  <desc id="desc">Crayon-style SeePhys Pro logo adapted from the project homepage.</desc>
+  <defs>
+    <filter id="soft-crayon" x="-8%" y="-15%" width="116%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="2" seed="8" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="paper-shadow" x="-8%" y="-12%" width="116%" height="140%">
+      <feDropShadow dx="2" dy="3" stdDeviation="1.8" flood-color="#1f2937" flood-opacity="0.12"/>
+    </filter>
+    <style>
+      .letter {
+        font-family: "Kalam", "Segoe Print", "Comic Sans MS", "Bradley Hand", cursive;
+        font-size: 126px;
+        font-weight: 800;
+        letter-spacing: 3px;
+        filter: url(#soft-crayon);
+      }
+      .shade {
+        opacity: 0.15;
+        stroke-linecap: round;
+        filter: blur(1.2px);
+      }
+      .scribble {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        mix-blend-mode: multiply;
+      }
+    </style>
+  </defs>
+
+  <rect width="1180" height="260" rx="38" fill="#fffdf8"/>
+  <path class="scribble" d="M56 182 C176 104 290 78 420 92" stroke="#b6cded" stroke-width="18" opacity="0.18"/>
+  <path class="scribble" d="M64 198 C174 138 306 128 454 154" stroke="#ebc799" stroke-width="16" opacity="0.18"/>
+  <path class="scribble" d="M800 74 C908 44 1012 70 1110 130" stroke="#e8b5aa" stroke-width="17" opacity="0.18"/>
+  <path class="scribble" d="M820 190 C914 166 1010 170 1116 202" stroke="#a8d0b7" stroke-width="14" opacity="0.16"/>
+
+  <g filter="url(#paper-shadow)">
+    <g transform="translate(78 165)">
+      <path class="shade" d="M8 22 H76" stroke="#c64e45" stroke-width="20"/>
+      <path class="shade" d="M92 22 H150" stroke="#df7a68" stroke-width="20"/>
+      <path class="shade" d="M168 22 H226" stroke="#bd982e" stroke-width="20"/>
+      <path class="shade" d="M248 22 H318" stroke="#2f8f69" stroke-width="20"/>
+      <path class="shade" d="M338 22 H404" stroke="#64b68d" stroke-width="20"/>
+      <path class="shade" d="M428 22 H486" stroke="#3f83b9" stroke-width="20"/>
+      <path class="shade" d="M506 22 H566" stroke="#65a9d7" stroke-width="20"/>
+      <path class="shade" d="M626 22 H690" stroke="#315d8c" stroke-width="20"/>
+      <path class="shade" d="M710 22 H762" stroke="#3f83b9" stroke-width="20"/>
+      <path class="shade" d="M784 22 H842" stroke="#65a9d7" stroke-width="20"/>
+
+      <text class="letter" x="0" y="0" rotate="-1.2 0.9 -0.8 -1.5 0.8 -0.6 1.1 -1.3 0.7 1.2">
+        <tspan fill="#c64e45">S</tspan><tspan fill="#df7a68">e</tspan><tspan fill="#bd982e">e</tspan><tspan fill="#2f8f69">P</tspan><tspan fill="#64b68d">h</tspan><tspan fill="#3f83b9">y</tspan><tspan fill="#65a9d7">s</tspan>
+        <tspan dx="54" fill="#315d8c">P</tspan><tspan fill="#3f83b9">r</tspan><tspan fill="#65a9d7">o</tspan>
+      </text>
+    </g>
+  </g>
+</svg>
