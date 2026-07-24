@@ -25,6 +25,10 @@
 
 ## News
 
+- [2026.06.16] The final private leaderboard for
+  [Track 3: SeePhys Pro](https://www.codabench.org/competitions/16010/) at the
+  [3rd AI for Math Workshop at ICML 2026](https://ai4math2026.github.io/) is
+  now available. Congratulations to all participants!
 - [2026.05.13] We release the official
   [code](https://github.com/AI4Phys/SeePhy-Pro) for SeePhys Pro.
 - [2026.05.13] The [arXiv paper](https://arxiv.org/abs/2605.09266) and
@@ -35,6 +39,36 @@
 - [2026.05.13] SeePhys Pro is included as
   [Challenge 3](https://www.codabench.org/competitions/16010/) at the
   [3rd AI for Math Workshop at ICML 2026](https://ai4math2026.github.io/).
+
+## Workshop Challenge Leaderboard
+
+Final private evaluation results for **Track 3: SeePhys Pro** at the
+**3rd AI for Math Workshop at ICML 2026**. Rankings are determined by
+question-count weighted accuracy across 3,320 private test questions.
+
+| Rank | Participant | Overall | Level 1 | Level 2 | Level 3 | Level 4 | Level 5 |
+| ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 🥇 1 | **kaistaailab** | **74.31** | 74.50 | 76.50 | 73.00 | 71.25 | 87.50 |
+| 🥈 2 | **jasperdekoninck** | **72.23** | 73.00 | 75.00 | 69.87 | 68.50 | 89.17 |
+| 🥉 3 | **baibzihe1** | **71.69** | 73.88 | 74.25 | 69.37 | 66.87 | 87.50 |
+| 4 | lh12345 | **71.51** | 73.25 | 74.75 | 68.25 | 67.50 | 86.67 |
+| 5 | ctree4113 | **70.36** | 71.63 | 71.88 | 67.87 | 67.00 | 90.83 |
+| 6 | huyttuan | **62.17** | 66.37 | 67.63 | 56.63 | 54.50 | 85.83 |
+| 7 | bkhoi | **56.87** | 58.00 | 56.87 | 57.13 | 56.75 | 48.33 |
+| 7 | mihena | **56.87** | 57.75 | 57.50 | 56.50 | 57.00 | 48.33 |
+| 9 | kurone02 | **55.66** | 58.37 | 59.13 | 50.50 | 49.63 | 89.17 |
+| 10 | cmxu7 | **42.44** | 50.12 | 44.37 | 36.88 | 33.50 | 75.00 |
+| 11 | robertboy18 | **39.34** | 45.87 | 41.38 | 31.62 | 31.37 | 86.67 |
+| 12 | usercrab | **31.42** | 39.87 | 33.25 | 25.50 | 23.13 | 57.50 |
+| 13 | ykjung | **29.73** | 29.50 | 30.00 | 26.25 | 29.38 | 55.00 |
+| 14 | deleted_user_70413 | **21.90** | 20.13 | 20.00 | 20.62 | 18.25 | 79.17 |
+| 15 | gptrans5_5 | **21.87** | 20.13 | 20.00 | 20.50 | 18.25 | 79.17 |
+
+Top 15 final private leaderboard entries are shown. Scores are percentages, and
+tied Overall scores share the same rank. **Level 5 is an additional OOD test for
+the workshop challenge and is not included in the paper.** See the
+[official CodaBench leaderboard](https://www.codabench.org/competitions/16010/)
+for the complete results.
 
 ## Overview
 
